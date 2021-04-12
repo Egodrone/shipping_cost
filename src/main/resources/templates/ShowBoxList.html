@@ -19,29 +19,57 @@
     </div>
 
     <div class="card-body errMsg">
-        <div class="alert alert-success" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+        <div class="alert alert-success" th:if="${message}" th:text="${message}"
+             th:class="${'alert ' + alertClass}"></div>
     </div>
 
     <div class="card-body errMsg">
-        <div class="alert alert-warning" th:if="${box.isEmpty()}">
+        <div class="alert alert-warning" th:if="${boxList.isEmpty()}">
             <strong> No information is available </strong>
         </div>
     </div>
 
-    <div th:unless="${box.isEmpty()}">
-        <thead>
-        <tr>
-            <th th:text="#{box.id.label}"></th>
-            <th th:text="#{box.name.label}"></th>
-            <th th:text="#{box.regDate.label}"></th>
+    <div th:unless="${boxList.isEmpty()}">
+        <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+                <th th:text="#{box.id.label}"></th>
+                <th th:text="#{box.name.label}"></th>
+                <th th:text="#{box.regDate.label}"></th>
 
-            <th>Details</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="boxDto : ${boxList}">
+                <td>
+                    <span th:text="${boxDto.getId()}"></span>
+                </td>
+                <td>
+                    <span th:text="${boxDto.getName()}"></span>
+                </td>
+                <td>
+                    <span th:text="${boxDto.getCreateDate()}"></span>
+                </td>
+
+                <td>
+                    <a href="#" class="btn btn-info"> Details </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning"> Edit </a>
+
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
