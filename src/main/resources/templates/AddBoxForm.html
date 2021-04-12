@@ -18,15 +18,22 @@
 
 
     <div class="card-body">
+
         <form th:action="@{/AddBoxForm}" method="post" th:object="${box}">
 
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-6 form-group">
+                        <label> Name: </label>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+                    <!--
+                    <div class="col-sm-6 form-group">
                         <label for="name"> Name: </label>
                         <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Enter name" name="name">
                         <p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                     </div>
+                    -->
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block mb-3" data-toggle="modal"
@@ -36,6 +43,7 @@
 
             </div>
         </form>
+
     </div>
 
 

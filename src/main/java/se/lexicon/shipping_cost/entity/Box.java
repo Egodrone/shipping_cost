@@ -33,9 +33,9 @@ public class Box {
     private double weight;
     @Column(nullable = false, length = 200)
     private String weightType;
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private LocalDateTime createDate;
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, columnDefinition = "tinyint(1) default 1")
     private boolean status;
 
     public Box() {
