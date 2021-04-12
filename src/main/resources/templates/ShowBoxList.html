@@ -35,11 +35,10 @@
             <tr>
                 <th th:text="#{box.id.label}"></th>
                 <th th:text="#{box.name.label}"></th>
-                <th th:text="#{box.regDate.label}"></th>
-
-                <th>Details</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th th:text="#{box.type.label}"></th>
+                <th th:text="#{box.country.label}"></th>
+                <th th:text="#{box.weight.label}"></th>
+                <th th:text="#{box.cost.label}"></th>
             </tr>
             </thead>
             <tbody>
@@ -51,21 +50,16 @@
                     <span th:text="${boxDto.getName()}"></span>
                 </td>
                 <td>
-                    <span th:text="${boxDto.getCreateDate()}"></span>
-                </td>
-
-                <td>
-                    <a href="#" class="btn btn-info"> Details </a>
+                    <span th:text="${boxDto.getType()}"></span>
                 </td>
                 <td>
-                    <a class="btn btn-warning"> Edit </a>
-
+                    <span th:text="${boxDto.getCountry()}"></span>
                 </td>
                 <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger">
-                        Delete
-                    </button>
+                    <span th:text="${boxDto.getWeight()}"></span>
+                </td>
+                <td>
+                    <span th:text="${boxDto.getCost()}"></span>
                 </td>
             </tr>
             </tbody>
