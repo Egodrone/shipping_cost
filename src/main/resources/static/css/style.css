@@ -1,0 +1,29 @@
+body {
+    background-color: #e4f3ec;
+}
+
+.container {
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.customerContainer {
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.card-body {
+    margin-bottom: 80px;
+}
+
+.errMsg {
+    margin-bottom: -20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+}
+
