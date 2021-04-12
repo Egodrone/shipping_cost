@@ -28,6 +28,22 @@
         </div>
     </div>
 
+    <div th:unless="${box.isEmpty()}">
+        <thead>
+        <tr>
+            <th th:text="#{box.id.label}"></th>
+            <th th:text="#{box.name.label}"></th>
+            <th th:text="#{box.regDate.label}"></th>
+
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </div>
+
 </div>
 
 
