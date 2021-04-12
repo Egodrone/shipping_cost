@@ -1,18 +1,41 @@
 package se.lexicon.shipping_cost.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+
+@Entity
 public class Box {
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(updatable = false, nullable = false)
     private String id;
+    @Column(nullable = false, length = 200)
     private String name;
+    @Column(nullable = false, length = 200)
     private String country;
+    @Column(nullable = false, length = 200)
     private String type;
+    @Column(nullable = false, length = 200)
     private double cost;
+    @Column(nullable = false, length = 200)
     private double weight;
+    @Column(nullable = false, length = 200)
     private String weightType;
+    @Column(nullable = false, length = 200)
     private LocalDateTime createDate;
+    @Column(nullable = false, length = 200)
     private boolean status;
 
     public Box() {

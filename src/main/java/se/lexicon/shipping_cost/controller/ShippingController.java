@@ -22,5 +22,9 @@ public class ShippingController {
         return "AddBoxForm";
     }
 
+    @GetMapping("/")
+    public String index_test() {
+        return "index";
+    }
 
 }
