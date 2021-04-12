@@ -48,6 +48,15 @@ public class Box {
     public Box() {
     }
 
+    public Box(@NotEmpty(message = "Name cannot be empty") @Size(min = 4, max = 35, message = "Name has to be in 4-35 characters range") String name, @NotEmpty(message = "Country cannot be empty") String country, String type, double cost, @NotNull(message = "Weight cannot be null") double weight, @NotEmpty(message = "Weight type cannot be empty") String weightType) {
+        this.name = name;
+        this.country = country;
+        this.type = type;
+        this.cost = cost;
+        this.weight = weight;
+        this.weightType = weightType;
+    }
+
     public Box(String id, String name, String country, String type, double cost, double weight, String weightType, LocalDateTime createDate, boolean status) {
         this.id = id;
         this.name = name;

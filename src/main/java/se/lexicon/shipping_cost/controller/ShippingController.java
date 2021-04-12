@@ -14,6 +14,7 @@ import se.lexicon.shipping_cost.repository.BoxRepository;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 
 @Controller
@@ -66,7 +67,22 @@ public class ShippingController {
             return "AddBoxForm";
         } else {
             //save to the db
-            boxRepository.save(box);
+            //test
+            String id = "123e4567-e89b-12d3-a456-556642440000";
+            String name = "Product Name";
+            String c = "country";
+            String type = "someType";
+            double cost = 9.3;
+            double weight = 6.5;
+            String wt = "weight type";
+            LocalDateTime tn = LocalDateTime.now();
+            boolean status = true;
+
+
+            //Box bb = new Box(name, c, type, cost, weight, wt);
+            Box bb = new Box(id, name, c, type, cost, weight, wt, tn, status);
+            boxRepository.save(bb);
+            //boxRepository.save(box);
         }
 
         return "redirect:/ShowBoxList/";
