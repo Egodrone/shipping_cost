@@ -2,11 +2,13 @@ package se.lexicon.shipping_cost.entity;
 
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -21,8 +23,11 @@ public class Box {
     )
     @Column(updatable = false, nullable = false)
     private String id;
-    @Column(nullable = false, length = 200)
+    @NotEmpty(message = "Name cannot be empty")
+    @Size(min = 4,max = 35, message = "Name has to be in 4-35 characters range")
+    @Column(nullable = false, length = 35)
     private String name;
+    @NotEmpty(message = "Country cannot be empty")
     @Column(nullable = false, length = 200)
     private String country;
     @Column(nullable = false, length = 200)
@@ -30,7 +35,9 @@ public class Box {
     @Column(nullable = false, length = 200)
     private double cost;
     @Column(nullable = false, length = 200)
+    @NotNull(message = "Weight cannot be null")
     private double weight;
+    @NotEmpty(message = "Weight type cannot be empty")
     @Column(nullable = false, length = 200)
     private String weightType;
     @Column(nullable = false, columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")

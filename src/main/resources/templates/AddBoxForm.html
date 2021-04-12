@@ -47,7 +47,6 @@
                         </label>
                     </div>
 
-
                     <div class="col-sm-6 form-group">
                         <label for="weight"> Weight: </label>
                         <input type="text" th:field="*{weight}" id="weight" class="form-control" placeholder="Weight"
@@ -61,6 +60,7 @@
                             <option value="kg"> KG</option>
                             <option value="g"> G</option>
                         </select>
+                        <p class="alert alert-danger" th:if="${#fields.hasErrors('weightType')}" th:errors="*{weightType}"></p>
                     </div>
 
 

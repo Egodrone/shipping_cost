@@ -55,22 +55,21 @@ public class ShippingController {
 
 
     @PostMapping("/AddBoxForm")
-    public String addBox(@ModelAttribute("box") Box box, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String addBox(@ModelAttribute("box") @Valid Box box, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         System.out.println("Create new box ");
         System.out.println(box.getCountry());
         System.out.println(box.getName());
+        System.out.println(box.getType());
 
-        //if statements here
-        //validation etc..
         if (bindingResult.hasErrors()) {
 
             return "AddBoxForm";
         } else {
             //save to the db
-            //boxRepository.save();
-
-            return "redirect:/ShowBoxList/";
+            boxRepository.save(box);
         }
+
+        return "redirect:/ShowBoxList/";
     }
 
 
