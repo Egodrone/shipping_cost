@@ -50,7 +50,9 @@ public class ShippingController {
 
 
     @GetMapping("/ShowBoxList")
-    public String box_list() {
+    public String box_list(Model model) {
+        model.addAttribute("box", boxRepository.findAll());
+
         return "ShowBoxList";
     }
 
