@@ -17,14 +17,23 @@ public class ShippingController {
     }
 
 
-    @GetMapping("/AddBoxForm")
+    @GetMapping("/")
     public String index() {
+        return "index";
+    }
+
+
+    @GetMapping("/AddBoxForm")
+    public String add() {
         return "AddBoxForm";
     }
 
-    @GetMapping("/")
+
+    @GetMapping("/ShowBoxList")
     public String index_test() {
-        return "index";
+        return "ShowBoxList";
     }
+
+
 
 }
