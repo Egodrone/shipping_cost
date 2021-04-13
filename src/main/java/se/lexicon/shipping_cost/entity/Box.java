@@ -1,6 +1,7 @@
 package se.lexicon.shipping_cost.entity;
 
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,14 +34,15 @@ public class Box {
     @NotEmpty(message = "Type cannot be empty")
     @Column(nullable = false, length = 200)
     private String type;
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false)
     private double cost;
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false)
     @NotNull(message = "Weight cannot be null")
     private double weight;
     @NotEmpty(message = "Weight type cannot be empty")
     @Column(nullable = false, length = 200)
     private String weightType;
+    @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private LocalDateTime createDate;
     @Column(nullable = false, columnDefinition = "tinyint(1) default 1")
