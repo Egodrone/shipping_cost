@@ -63,6 +63,9 @@ public class ShippingController {
         System.out.println(box.getCountry());
         System.out.println(box.getName());
         System.out.println(box.getType());
+        System.out.println(box.getWeightType());
+        System.out.println(box.getCountry());
+        System.out.println(box.getWeight());
 
         if (bindingResult.hasErrors()) {
 
@@ -83,8 +86,8 @@ public class ShippingController {
 
             //Box bb = new Box(name, c, type, cost, weight, wt);
             Box bb = new Box(id, name, c, type, cost, weight, wt, tn, status);
-            boxRepository.save(bb);
-            //boxRepository.save(box);
+            //boxRepository.save(bb);
+            boxRepository.save(box);
         }
 
         return "redirect:/ShowBoxList/";

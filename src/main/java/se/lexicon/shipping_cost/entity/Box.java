@@ -30,6 +30,7 @@ public class Box {
     @NotEmpty(message = "Country cannot be empty")
     @Column(nullable = false, length = 200)
     private String country;
+    @NotEmpty(message = "Type cannot be empty")
     @Column(nullable = false, length = 200)
     private String type;
     @Column(nullable = false, length = 200)

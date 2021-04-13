@@ -29,45 +29,54 @@
                         <p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
                     </div>
 
+                    <div class="col-sm-12">
+                        <div class="form-check col-sm-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="optradio" th:field="*{type}"
+                                       value="letter"> Letter
+                            </label>
+                            <!--
+                            <label class="form-check-label ">
+                                <input type="radio" class="form-check-input" name="optradio"> Packet
+                            </label>
+                            -->
+                        </div>
 
-                    <div class="form-check col-sm-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio"> Letter
-                        </label>
-                        <!--
-                        <label class="form-check-label ">
-                            <input type="radio" class="form-check-input" name="optradio"> Packet
-                        </label>
-                        -->
-                    </div>
-
-                    <div class="form-check col-sm-3">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio"> Packet
-                        </label>
+                        <div class="form-check col-sm-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" th:field="*{type}" name="optradio"
+                                       value="packet"> Packet
+                            </label>
+                        </div>
+                        <p class="alert alert-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></p>
                     </div>
 
                     <div class="col-sm-6 form-group">
                         <label for="weight"> Weight: </label>
-                        <input type="text" th:field="*{weight}" id="weight" class="form-control" placeholder="Weight"
+                        <input type="number" th:field="*{weight}" id="weight" class="form-control" placeholder="Weight"
                                name="weight">
                         <p class="alert alert-danger" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></p>
                     </div>
 
                     <div class="col-sm-6 form-group">
                         <label for="weightType"> Weight Type: </label>
-                        <select class="form-control" id="weightType" name="weightType">
+                        <select class="form-control" id="weightType" th:field="*{weightType}" name="weightType">
                             <option value="kg"> KG</option>
                             <option value="g"> G</option>
                         </select>
-                        <p class="alert alert-danger" th:if="${#fields.hasErrors('weightType')}" th:errors="*{weightType}"></p>
+                        <p class="alert alert-danger" th:if="${#fields.hasErrors('weightType')}"
+                           th:errors="*{weightType}"></p>
                     </div>
 
 
                     <div class="col-sm-6 form-group">
                         <label for="country"> Country: </label>
-                        <input type="text" th:field="*{country}" class="form-control" id="country" placeholder="Country"
-                               name="country">
+                        <!--<input type="text" th:field="*{country}" class="form-control" id="country" placeholder="Country"
+                               name="country">-->
+                        <select class="form-control" id="country" th:field="*{country}" name="country">
+                            <option value="SWE"> Sweden</option>
+                            <option value="AU"> Australia</option>
+                        </select>
                         <p class="alert alert-danger" th:if="${#fields.hasErrors('country')}"
                            th:errors="*{country}"></p>
                     </div>
