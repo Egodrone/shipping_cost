@@ -24,27 +24,35 @@ public class Box {
     )
     @Column(updatable = false, nullable = false)
     private String id;
+
     @NotEmpty(message = "Name cannot be empty")
     @Size(min = 4,max = 35, message = "Name has to be in 4-35 characters range")
     @Column(nullable = false, length = 35)
     private String name;
+
     @NotEmpty(message = "Country cannot be empty")
     @Column(nullable = false, length = 200)
     private String country;
+
     @NotEmpty(message = "Type cannot be empty")
     @Column(nullable = false, length = 200)
     private String type;
+
     @Column(nullable = false)
     private double cost;
+
     @Column(nullable = false)
     @NotNull(message = "Weight cannot be null")
     private double weight;
+
     @NotEmpty(message = "Weight type cannot be empty")
     @Column(nullable = false, length = 200)
     private String weightType;
+
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP default CURRENT_TIMESTAMP")
     private LocalDateTime createDate;
+
     @Column(nullable = false, columnDefinition = "tinyint(1) default 1")
     private boolean status;
 
